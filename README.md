@@ -1,2 +1,2 @@
-# logstretch
-Logstretch public files
+# Bro Ids Global Whitelist
+
