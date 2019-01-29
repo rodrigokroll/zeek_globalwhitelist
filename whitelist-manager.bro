@@ -23,7 +23,7 @@ type Val: record {
 global buildwlist: table[string] of Val = table();
 
 event bro_init() &priority=10 {
-        Input::add_table([$source="/opt/logstretch/repo/bro/site/bblock/globalwhitelist.db", $name="buildwlist",$idx=Idx, $val=Val, $destination=buildwlist,$mode=Input::REREAD]);
+        Input::add_table([$source="/opt/globalwhitelist.db", $name="buildwlist",$idx=Idx, $val=Val, $destination=buildwlist,$mode=Input::REREAD]);
         Input::remove("whitelist");
 }
 
