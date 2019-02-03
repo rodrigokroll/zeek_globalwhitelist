@@ -80,6 +80,9 @@ local rulename: string = "External_DNS_query";<br />
  if (!(GlobalWhitelist::checkwhitelist(rulename,c$id$orig_h,c$id$resp_h,c$id$resp_p))) {<br />
         # continue code to trigger your rule<br />
  }<br />
+ 
+#Deploy bro services<br />
+broctl deploy<br />
 
 If the function returns False, the script won't proceed because is whitelisted. If returns True, that means is not whitelist.<br />
 I'll post a video soon with a demonstration.<br />
