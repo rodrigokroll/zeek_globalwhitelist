@@ -2,7 +2,7 @@
 
 Description:<br />
 
-A Bro module that defines an IP-based global whitelist configuration file for all your bro scripts. The whitelists are defined on the file globalwhitelist.db. Allow whitelists based-on Source IP(s), Destination(s) and Destination Port(s).<br />
+A Bro module that defines an IP-based global whitelist configuration file for all your bro scripts. The whitelists are defined on the file globalwhitelist.db. Allow whitelists based-on Source IP(s), Destination IP(s) and Destination Port(s).<br />
 
 Advantages:<br />
 <br />
