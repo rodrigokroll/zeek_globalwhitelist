@@ -1,0 +1,7 @@
+#fields	name	sIP	dIP	dport	specific  debug
+External_DNS_query	0.0.0.0	1.1.1.1,8.8.8.8	53/udp	-	T
+Multiple_Connections_Attempt	0.0.0.0	1.1.29.1	443/tcp,22/tcp	10.0.0.3:1.1.29.2:80/tcp,10.30.198.92:10.0.10.2:443/tcp,10.0.0.3:10.0.10.190:9200/tcp	F
+Torrent_traffic	10.0.0.3	0.0.0.0	0/tcp	- F
+Long_Connections	0.0.0.0	192.168.0.10,192.168.0.11	443/tcp,80/tcp	-	F
+High_volume_of_emails	172.23.6.43	0.0.0.0	25/tcp	-	F
+Ransomware_Detected	0.0.0.0	0.0.0.0	0/tcp	10.0.0.3:192.168.0.1:443/tcp,10.0.0.3:192.168.0.1:444/tcp	T
