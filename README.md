@@ -23,7 +23,7 @@ The columns are separated by Tab delimiter with the following content:<br />
 
 . name: bro script or rule name you intend to create the whitelist statement. Rules names are unique on the file.<br />
 . sIP: Source IP(s) separated by comma<br />
-. dIP: Destination(s) separated by comma<br />
+. dIP: Destination IP(s) separated by comma<br />
 . dport: Destination Port(s) separated by comma<br />
 . specific: Specific condition(s) separated by comma<br />
 . debug: Enable debug using T or disable using F<br />
