@@ -53,7 +53,7 @@ External_DNS_query	0.0.0.0	1.1.1.1,8.8.8.8	53/udp	-	T<br />
 
 . Create a whitelist for the bro script "External_DNS_query"<br />
 . Define ANY source IP to the destination IP 1.1.1.1 and destination IP 8.8.8.8 AND port 53/udp<br />
-. Define none (-) specific conditions
+. Define none (-) specific conditions<br />
 . Enable debug. When debug is enable, a log file is created (named whitelist.log), every time the traffic condition is triggered the log is appended for debugging.<br />
 
 Line 2 explained:<br />
