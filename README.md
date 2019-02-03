@@ -74,7 +74,7 @@ In your bro script:<br />
 #Call the module globalwhitelist<br />
 @load frameworks/globalwhitelist<br />
 
-#Declare the rulename, using exactly the same name on the file globalwhitelist.db<br />
+#Declare the rulename, using exact the same name on the file globalwhitelist.db<br />
 local rulename: string = "External_DNS_query";<br />
 #Call the function checkwhitelist passing the parameters rule name, c$id$orig_h, c$id$resp_h and c$id$resp_p<br />
  if (!(GlobalWhitelist::checkwhitelist(rulename,c$id$orig_h,c$id$resp_h,c$id$resp_p))) {<br />
