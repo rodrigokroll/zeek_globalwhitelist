@@ -7,7 +7,7 @@ A Bro module that defines an IP-based global whitelist configuration file for al
 Advantages:<br />
 <br />
 .  Easy to manage whitelists. Whitelists are all configured in one simple file<br />
-.  No need to change bro scripts<br />
+.  Less changes on bro scripts<br />
 .  Avoid accidental errors changing scripts<br />
 .  Add and remove items from the whitelist in real-time. No need to restart bro<br />
 
