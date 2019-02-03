@@ -5,7 +5,6 @@
 A Bro module that manages an IP-based global whitelist configuration file for all your bro scripts. The whitelists are defined on the file globalwhitelist.db. Allow whitelists based-on Source IP(s), Destination IP(s) and Destination Port(s).<br />
 
 ### Advantages ###
-<br />
 .  Easy to manage whitelists. Whitelists are all configured in one simple file<br />
 .  Add and remove items from the whitelist in real-time. No need to restart bro<br />
 .  Less changes on bro scripts<br />
