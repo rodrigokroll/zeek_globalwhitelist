@@ -40,7 +40,7 @@ type Val: record {
 
 global buildwlist: table[string] of Val = table();
 
-event bro_init() {
+event bro_init() &priority=10 {
 	Log::create_stream(LOG, [$columns=Info, $path="whitelist"]);
         Input::add_table([$source="./globalwhitelist.db", $name="buildwlist",$idx=Idx, $val=Val, $destination=buildwlist,$mode=Input::REREAD]);
         Input::remove("whitelist");
