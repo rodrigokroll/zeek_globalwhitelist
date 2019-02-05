@@ -23,7 +23,9 @@ The columns are separated by Tab delimiter with the following content:<br />
 . name: bro script or rule name you intend to create the whitelist statement. Rules names are unique on the file.<br />
 . sIP: Source IP(s) separated by comma<br />
 . dIP: Destination IP(s) separated by comma<br />
-. dport: Destination Port(s) separated by comma<br />
+. sCIDR: Source Subnet(s) separated by comma<br />
+. dCIDR: Destination Subnet(s) separated by comma<br />
+. dport: Destination Port(s) separated by comma. This field only works in cojunction with sIP, dIP, sCIDR and dCIDR. It doesn't work with the specific field<br />
 . specific: Specific condition(s) separated by comma<br />
 . debug: Enable debug using T or disable using F<br />
 
@@ -39,19 +41,20 @@ Example : 10.30.198.92:10.0.10.2:443/tcp,10.30.198.92:10.0.10.5:443/tcp<br />
 
 ### globalwhitelist.db example ###
 
-#fields	name	sIP	dIP	dport	specific  debug<br />
-External_DNS_query	0.0.0.0	1.1.1.1,8.8.8.8	53/udp	-	T<br />
-Multiple_Connections_Attempt	0.0.0.0	1.1.29.1	443/tcp,22/tcp	10.0.0.3:1.1.29.2:80/tcp,10.30.198.92:10.0.10.2:443/tcp,10.0.0.3:10.0.10.190:9200/tcp	F<br />
-Torrent_traffic	10.0.0.3	0.0.0.0	0/tcp	- F<br />
-Long_Connections	0.0.0.0	192.168.0.10,192.168.0.11	443/tcp,80/tcp	-	F<br />
-High_volume_of_emails	172.23.6.43	0.0.0.0	25/tcp	-	F<br />
-Ransomware_Detected	0.0.0.0	0.0.0.0	0/tcp	10.0.0.3:192.168.0.1:443/tcp,10.0.0.3:192.168.0.1:444/tcp	T<br />
+#fields name    sIP     dIP     sCIDR   dCIDR   dport   specific        debug<br />
+External_DNS_query	0.0.0.0	1.1.1.1,8.8.8.8     10.0.10.0/24         -	53/udp	-	T<br />
+Multiple_Connections_Attempt	0.0.0.0	1.1.29.1  -         -	443/tcp,22/tcp	10.0.0.3:1.1.29.2:80/tcp,10.30.198.92:10.0.10.2:443/tcp,10.0.0.3:10.0.10.190:9200/tcp	F<br />
+Torrent_traffic	10.0.0.3	0.0.0.0   -         -	0/tcp	- F<br />
+Long_Connections	0.0.0.0	192.168.0.10,192.168.0.11     -         -	443/tcp,80/tcp	-	F<br />
+High_volume_of_emails	172.23.6.43	0.0.0.0   192.168.0.1/28      -	25/tcp	-	F<br />
+Ransomware_Detected	0.0.0.0	0.0.0.0   -         -         0/tcp	10.0.0.3:192.168.0.1:443/tcp,10.0.0.3:192.168.0.1:444/tcp	T<br />
 
 Line 1 explained:<br />
 External_DNS_query	0.0.0.0	1.1.1.1,8.8.8.8	53/udp	-	T<br />
 
 . Create a whitelist for the bro script "External_DNS_query"<br />
 . Define ANY source IP to the destination IP 1.1.1.1 and destination IP 8.8.8.8 AND port 53/udp<br />
+. Define source subnet 10.0.10.0/24 AND port 53/udp and no destination subnets<br />
 . Define none (-) specific conditions<br />
 . Enable debug. When debug is enable, a log file is created (named whitelist.log), every time the traffic condition is triggered the log is appended for debugging.<br />
 
@@ -60,6 +63,7 @@ Multiple_Connections_Attempt	0.0.0.0	1.1.29.1	443/tcp,22/tcp	10.0.0.3:1.1.29.2:8
 
 . Create a whitelist for the bro script "Multiple_Connections_Attempt"<br />
 . Define ANY source IP to the destination IP 1.1.29.1 AND ( port 443/tcp OR port 22/tcp )<br />
+. Define no source subnets and no destination subnets<br />
 . Define the following specific whitelist:<br />
           ->  Source IP 10.0.0.3 AND Destination IP 1.1.29.2 AND port 80/tcp<br />
           ->  Source IP 10.30.198.92 AND Destination IP 10.0.10.2 AND port 443/tcp<br />
