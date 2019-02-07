@@ -50,7 +50,7 @@ High_volume_of_emails	172.23.6.43	0.0.0.0   192.168.0.1/28      -	25/tcp	-	F<br 
 Ransomware_Detected	0.0.0.0	0.0.0.0   -         -         0/tcp	10.0.0.3:192.168.0.1:443/tcp,10.0.0.3:192.168.0.1:444/tcp	T<br />
 
 Line 1 explained:<br />
-External_DNS_query	0.0.0.0	1.1.1.1,8.8.8.8	53/udp	-	T<br />
+External_DNS_query	0.0.0.0	1.1.1.1,8.8.8.8     10.0.10.0/24         -	53/udp	-	T<br />
 
 . Create a whitelist for the bro script "External_DNS_query"<br />
 . Define ANY source IP to the destination IP 1.1.1.1 and destination IP 8.8.8.8 AND port 53/udp<br />
@@ -59,7 +59,7 @@ External_DNS_query	0.0.0.0	1.1.1.1,8.8.8.8	53/udp	-	T<br />
 . Enable debug. When debug is enable, a log file is created (named whitelist.log), every time the traffic condition is triggered the log is appended for debugging.<br />
 
 Line 2 explained:<br />
-Multiple_Connections_Attempt	0.0.0.0	1.1.29.1	443/tcp,22/tcp	10.0.0.3:1.1.29.2:80/tcp,10.30.198.92:10.0.10.2:443/tcp,10.0.0.3:10.0.10.190:9200/tcp	F<br />
+Multiple_Connections_Attempt	0.0.0.0	1.1.29.1  -         -	443/tcp,22/tcp	10.0.0.3:1.1.29.2:80/tcp,10.30.198.92:10.0.10.2:443/tcp,10.0.0.3:10.0.10.190:9200/tcp	F<br />
 
 . Create a whitelist for the bro script "Multiple_Connections_Attempt"<br />
 . Define ANY source IP to the destination IP 1.1.29.1 AND ( port 443/tcp OR port 22/tcp )<br />
