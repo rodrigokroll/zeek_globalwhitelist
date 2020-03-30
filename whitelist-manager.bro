@@ -1,11 +1,11 @@
-#=============================================================================
+#==============================================================================
 #title           :whitelist-manager.bro
 #description     :Manages global whitelist for bro scripts
 #author          :Rodrigo Kroll - Logstretch
 #email           :rodrigo.kroll@logstretch.com
 #date            :20190115
 #version         :1.1
-#=============================================================================
+#==============================================================================
 
 module GlobalWhitelist;
 
