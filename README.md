@@ -88,4 +88,4 @@ local rulename: string = "External_DNS_query";<br />
 broctl deploy<br />
 
 If the function returns False, the script won't proceed because is whitelisted. If returns True, that means is not whitelist.<br />
-I'll post a video soon with a demonstration.<br />
+<br />
